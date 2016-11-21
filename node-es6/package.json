@@ -8,7 +8,7 @@
 	"start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Peter Lunneberg <plunn.dev@gmail.com>",
+  "author": "Peter Lunneberg <plunn.dev+15puzzle@gmail.com>",
   "license": "ISC",
   "repository": {
     "type": "git",
