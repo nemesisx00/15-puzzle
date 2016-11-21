@@ -1,0 +1,101 @@
+body
+{
+	width: 100%;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	background-color: #CCC;
+}
+
+.noSelect
+{
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+#winMessage
+{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 80vh;
+	background: rgba(0, 0, 0, 0.25);
+}
+
+#winMessage > div
+{
+	position: relative;
+	width: 35%;
+	padding: 10px;
+	margin-top: 23%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	color: #FFF;
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 1);
+}
+
+/**************************************************
+* Tiles
+**************************************************/
+
+.tileBoard
+{
+	width: 100%;
+	height: 100vh;
+}
+
+.tileBoard .tiles
+{
+	width: 100%;
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.tiles .tileRow
+{
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	border-bottom: 1px solid #000;
+}
+.tiles .tileRow:first-child { border-top: 1px solid #000; }
+
+.tileRow .tile
+{
+	position: relative;
+	flex-grow: 1;
+	border-right: 1px solid #000;
+}
+.tileRow .tile:last-child { border-right: 0 none; }
+
+.tileRow .tile div
+{
+	cursor: default;
+	position: absolute;
+	left: 0;
+	top: 16px;
+	width: 100%;
+	text-align: center;
+}
+
+/**************************************************
+* Buttons
+**************************************************/
+
+.controls
+{
+	margin-top: 15px;
+}
+
+#resetButton
+{
+	width: 30%;
+	margin: 0 auto;
+}

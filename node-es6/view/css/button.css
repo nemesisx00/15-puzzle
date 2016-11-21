@@ -1,0 +1,66 @@
+/* 
+	Created on : Apr 6, 2015, 10:57:04 AM
+	Author     : Peter Lunneberg <plunn.dev@gmail.com>
+	Description: CSS styles to implement a pure CSS3 button.
+*/
+
+.button
+{
+	cursor: pointer;
+	max-width: 100%;
+	max-height: 100%;
+	border-radius: 5px;
+	border: 1px solid #777;
+
+	transition: all .05s ease;
+	-o-transition: all .05s ease; /* Opera */
+	-ms-transition: all .05s ease; /* IE 9 */
+	-moz-transition: all .05s ease; /* Firefox */
+	-webkit-transition: all .05s ease; /* Safari and Chrome */
+
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+.button:active
+{
+	transform: scale(.95);
+	-o-transform: scale(.95); /* Opera */
+	-ms-transform: scale(.95); /* IE 9 */
+	-moz-transform: scale(.95); /* Firefox */
+	-webkit-transform: scale(.95); /* Safari and Chrome */
+}
+
+.button.disabled
+{
+	border: 0 none;
+	color: #666;
+	cursor: default;
+}
+.button.disabled:active
+{
+	transform: none !important;
+	-o-transform: none !important; /* Opera */
+	-ms-transform: none !important; /* IE 9 */
+	-moz-transform: none !important; /* Firefox */
+	-webkit-transform: none !important; /* Safari and Chrome */
+}
+
+.button > *
+{
+	width: inherit;
+	height: inherit;
+	text-align: center;
+	border-radius: 5px;
+	display: table-cell;
+	vertical-align: middle;
+	background-color: #BBB;
+
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+}
