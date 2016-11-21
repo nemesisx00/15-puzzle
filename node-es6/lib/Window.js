@@ -6,6 +6,7 @@ let path = require('path')
 let url = require('url')
 
 let defaultIndex = '../view/index.html';
+let aboutPath = '../view/about.html';
 
 let defaultOptions = {
 	width: 250,
@@ -19,25 +20,6 @@ let requiredOptions = {
 	maximizable: false,
 	resizable: false
 }
-
-let menuTemplate = [
-	{
-		label: 'File',
-		submenu: [
-			/*
-			{
-				label: 'Toggle Developer Tools',
-				accelerator: process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
-				click (item, focusedWindow) {
-					if(focusedWindow)
-						focusedWindow.webContents.toggleDevTools()
-				}
-			},
-			*/
-			{ role: 'close' }
-		]
-	}
-]
 
 class Window
 {
@@ -62,8 +44,7 @@ class Window
 			console.log('ready!')
 		})
 		
-		let menu = Menu.buildFromTemplate(menuTemplate)
-		Menu.setApplicationMenu(menu)
+		this.setupMenu()
 	}
 	
 	show()
@@ -75,6 +56,60 @@ class Window
 	destroy()
 	{
 		this.mainWindow = null
+	}
+	
+	setupMenu()
+	{
+		let self = this
+		let menuTemplate = [
+			{
+				label: 'File',
+				submenu: [
+					/*
+					{
+						label: 'Toggle Developer Tools',
+						accelerator: process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
+						click (item, focusedWindow) {
+							if(focusedWindow)
+								focusedWindow.webContents.toggleDevTools()
+						}
+					},
+					*/
+					{ role: 'close' }
+				]
+			},
+			{
+				label: 'Help',
+				role: 'help',
+				submenu: [
+					{
+						role: 'about',
+						click() {
+							let child = new BrowserWindow({
+								parent: self.mainWindow,
+								width: 500,
+								height: 250,
+								fullscreen: false,
+								fullscreenable: false,
+								minimizable: false,
+								maximizable: false,
+								resizable: false,
+								autoHideMenuBar: true
+							})
+							child.loadURL(url.format({
+								pathname: path.join(__dirname, aboutPath).replace(/\\/g, '/'),
+								protocol: 'file:',
+								slashes: true
+							}))
+							child.show()
+						}
+					}
+				]
+			}
+		]
+		
+		let menu = Menu.buildFromTemplate(menuTemplate)
+		Menu.setApplicationMenu(menu)
 	}
 }
 

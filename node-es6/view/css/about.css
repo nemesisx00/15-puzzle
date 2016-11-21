@@ -1,0 +1,47 @@
+body
+{
+	display: flex;
+	flex-direction: column;
+	width: 95%;
+	height: 100vh;
+	margin: 0 auto;
+	padding: 0;
+	background-color: #CCC;
+}
+
+body > * { flex-grow: 1 }
+
+.title
+{
+	padding-top: 25px;
+	font-size: 1.5em;
+	font-weight: bold;
+	text-align: center;
+}
+
+.author
+{
+	font-weight: bold;
+	text-align: center;
+}
+
+.author br
+{
+	margin-bottom: 10px;
+}
+
+.author a
+{
+	text-decoration: none;
+	color: inherit;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+}
+
+.author a:hover { color: #00F; }
+
+div
+{
+	text-align: justify;
+}
